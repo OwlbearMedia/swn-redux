@@ -1,26 +1,23 @@
 <template>
-  <svg class="hex-container" :x="hexData.x" :y="hexData.y" style="width: '90px'">
+  <svg class="hex-container" :x="hexData.x" :y="hexData.y">
     <polygon class="hex" :points="hexPoints(hexData.radius)"></polygon>
-    <text :x="hexData.radius" y="75">
-      {{ getHexNumber }}
+    <text class="system-name" v-if="hexData.systemData && hexData.systemData.explored" :x="hexData.radius" y="30">
+      {{ hexData.systemData.name }}
     </text>
-    <circle v-if="hexData.hasStar" :cx="hexData.radius" :cy="hexData.radius" r="7" stroke="#aaa" stroke-width="1" fill="yellow"></circle>
+    <circle v-if="hexData.systemData" :cx="hexData.radius" :cy="hexData.radius" r="7" stroke="#E3BB27" stroke-width="1" fill="#FCD440"></circle>
+    <text class="hex-number" :x="hexData.radius" y="75">
+      {{ getHexNumber(hexData.column, hexData.row) }}
+    </text>
   </svg>
 </template>
 
 <script>
+  import getHex from './mixins/get-hex-info';
+
   export default {
     name: 'hex',
+    mixins: [getHex],
     props: ['hexData'],
-    computed: {
-      getHexNumber() {
-        function pad(n) {
-          return (n < 10) ? (`0${n}`) : n;
-        }
-
-        return pad(this.hexData.column) + pad(this.hexData.row);
-      },
-    },
     methods: {
       hexPoints(radius) {
         const points = [];
@@ -46,9 +43,15 @@
     stroke-width: 2px;
   }
 
-  text {
+  .hex-number {
     fill: #aaa;
     font-size: 12px;
+    text-anchor: middle;
+  }
+
+  .system-name {
+    fill: #333;
+    font-size: 10px;
     text-anchor: middle;
   }
 </style>

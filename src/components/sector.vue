@@ -1,9 +1,16 @@
 <template>
   <div>
-    <h1>Sector</h1>
+    <h1>Sector {{ sectorName }}</h1>
     <svg id="sector-map" class="sector-map" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <chart
+        v-for="chart in sectorCharts"
+        :chart="chart"
+        :hexes="hexes"
+        :radius="45"
+        :key="chart.id"
+      ></chart>
       <hex
-        v-for="hexData in getHexes()"
+        v-for="hexData in hexes"
         :hexData="hexData"
         :key="hexData.key"
       ></hex>
@@ -12,10 +19,14 @@
 </template>
 
 <script>
+  import getHex from './mixins/get-hex-info';
   import Hex from './hex';
+  import Chart from './chart';
 
   export default {
-    components: { Hex },
+    name: 'sector',
+    components: { Hex, Chart },
+    mixins: [getHex],
     data() {
       return {
         radius: 45,
@@ -23,9 +34,18 @@
         rows: 10,
       };
     },
-    methods: {
-      getHexes() {
-        const hexes = [];
+    computed: {
+      sectorName() {
+        return this.$store.state.sector.name;
+      },
+      sectorSystems() {
+        return this.$store.state.sector.systems;
+      },
+      sectorCharts() {
+        return this.$store.state.sector.charts;
+      },
+      hexes() {
+        const hexes = {};
         const radius = this.radius;
         const cols = this.columns;
         const rows = this.rows;
@@ -36,18 +56,29 @@
             const x = offset * column * Math.sqrt(3);
             const y = (column % 2 !== 0) ? (offset * 2 * row) + offset : (offset * 2 * row);
 
-            hexes.push({
-              key: `hex${column}${row}`,
+            hexes[this.pad(column) + this.pad(row)] = {
+              systemData: this.getSystemData(column, row),
               radius,
               column,
               row,
               y,
               x,
-            });
+            };
           }
         }
 
         return hexes;
+      },
+    },
+    methods: {
+      getSystemData(column, row) {
+        let systemData = null;
+
+        if (this.sectorSystems) {
+          systemData = this.sectorSystems[this.getHexNumber(column, row)];
+        }
+
+        return systemData;
       },
     },
 };
