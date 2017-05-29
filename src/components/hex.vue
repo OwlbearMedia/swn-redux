@@ -4,6 +4,7 @@
     <text :x="hexData.radius" y="75">
       {{ getHexNumber }}
     </text>
+    <circle v-if="hexData.hasStar" :cx="hexData.radius" :cy="hexData.radius" r="7" stroke="#aaa" stroke-width="1" fill="yellow"></circle>
   </svg>
 </template>
 
@@ -39,6 +40,7 @@
 
 <style scoped>
   .hex {
+    cursor: pointer;
     fill: transparent;
     stroke: #000;
     stroke-width: 2px;
