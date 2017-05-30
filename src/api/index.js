@@ -30,6 +30,10 @@ export default {
         },
         '0203': {
           name: 'Hard Light',
+          star: {
+            name: 'Perdurabo',
+            type: 'Red giant',
+          },
           explored: true,
         },
         '0204': {
@@ -43,6 +47,67 @@ export default {
         '0207': {
           name: 'Gateway',
           explored: true,
+          star: {
+            name: 'Krumine',
+            type: 'G2V',
+            radius: 1.127,
+            mass: 1.07,
+            luminosity: 1.219,
+          },
+          stellarBodies: [
+            {
+              name: 'Krumine I',
+              type: 'Terrestrial World',
+              atmosphere: 'Corrosive',
+              temperature: 'Burning',
+              biosphere: 'None',
+              gravity: 0.904,
+              radius: 0.949,
+              population: 0,
+              moons: 0,
+            }, {
+              name: 'Gateway',
+              type: 'Terrestrial World',
+              atmosphere: 'Breathable',
+              temperature: 'Warm/Temperate',
+              biosphere: 'Miscible',
+              gravity: 1.102,
+              radius: 1.129,
+              population: 3215000,
+              techLevel: 4,
+              moons: 1,
+              extendedInfo: {
+                tags: [
+                  {
+                    name: 'Forbidden Tech',
+                    description: 'The maltech remnants remaining in the bunker sites',
+                  }, {
+                    name: 'Pilgrimage Site',
+                    description: 'The orbital jump gate',
+                  },
+                ],
+                description: 'One thousand years ago, Gateway was the only world in the sector that rated a jump gate. Most of the later colonization of the sector came through Gateway, and countless estates and pleasure-palaces were erected on the tropical shores and high mountains of the world. When the Scream came, Gateway suffered a brutal population crash as bulk food transports could no longer reach the planet. In the chaos, countless wealthy and powerful citizens fortified their homes with supplies and automated defenses in hope of riding out the catastrophe. Many never emerged. Today, the Salvage Board issues permits to explore these sites to suitably brave souls. Oversight is necessary because some of these sites engaged in extremely dangerous maltech experimentation in a desperate attempt to restore the jump gate and the maddened psychics that once powered it. Modern psychic training on Gateway is done at the Perfect Mirror Academy, founded by a refugee from the Temple of the Clear Sky on Tecalco. The methods of the Academy are strictly orthodoxtoo orthodox for some. A sect of renegade psychics seeks to use some of the ancient experimentation to fuel greater power than the Academy offers, no matter the cost to them or those around them.',
+              },
+            }, {
+              name: 'Asteroid Belt',
+              type: 'Asteroid Belt',
+            }, {
+              name: 'Krumine III',
+              type: 'Gas Giant',
+              gravity: 1.065,
+              radius: 9.449,
+              population: 0,
+              moons: 42,
+              notes: 'Extensive ring system',
+            }, {
+              name: 'Krumine IV',
+              type: 'Ice Giant',
+              gravity: 1.14,
+              radius: 3.883,
+              population: 0,
+              moons: 65,
+            },
+          ],
         },
         '0301': {
           name: '',

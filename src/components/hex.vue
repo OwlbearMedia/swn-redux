@@ -1,5 +1,5 @@
 <template>
-  <svg class="hex-container" :x="hexData.x" :y="hexData.y">
+  <svg class="hex-container" :x="hexData.x" :y="hexData.y" @click="selectSystem">
     <polygon class="hex" :points="hexPoints(hexData.radius)"></polygon>
     <text class="system-name" v-if="hexData.systemData && hexData.systemData.explored" :x="hexData.radius" y="30">
       {{ hexData.systemData.name }}
@@ -30,6 +30,10 @@
         }
 
         return points.join(' ');
+      },
+      selectSystem(event) {
+        event.preventDefault();
+        this.$parent.selectedSystem = this.hexData.systemData;
       },
     },
   };

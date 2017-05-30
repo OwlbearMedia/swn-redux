@@ -6,8 +6,11 @@
 </template>
 
 <script>
+  import Sector from './components/sector';
+
   export default {
     name: 'app',
+    components: { Sector },
     created() {
       this.$store.dispatch('getSector');
     },

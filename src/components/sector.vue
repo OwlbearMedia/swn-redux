@@ -1,37 +1,42 @@
 <template>
   <div>
     <h1>Sector {{ sectorName }}</h1>
-    <svg id="sector-map" class="sector-map" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <chart
-        v-for="chart in sectorCharts"
-        :chart="chart"
-        :hexes="hexes"
-        :radius="45"
-        :key="chart.id"
-      ></chart>
-      <hex
-        v-for="hexData in hexes"
-        :hexData="hexData"
-        :key="hexData.key"
-      ></hex>
-    </svg>
+    <div class="container">
+      <svg id="sector-map" class="sector-map" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <chart
+          v-for="chart in sectorCharts"
+          :chart="chart"
+          :hexes="hexes"
+          :radius="45"
+          :key="chart.id"
+        ></chart>
+        <hex
+          v-for="hexData in hexes"
+          :hexData="hexData"
+          :key="hexData.key"
+        ></hex>
+      </svg>
+      <system-overview v-if="selectedSystem" :system="selectedSystem"></system-overview>
+    </div>
   </div>
 </template>
 
 <script>
-  import getHex from './mixins/get-hex-info';
   import Hex from './hex';
   import Chart from './chart';
+  import SystemOverview from './system-overview';
+  import getHex from './mixins/get-hex-info';
 
   export default {
     name: 'sector',
-    components: { Hex, Chart },
+    components: { Hex, Chart, SystemOverview },
     mixins: [getHex],
     data() {
       return {
         radius: 45,
         columns: 8,
         rows: 10,
+        selectedSystem: null,
       };
     },
     computed: {
@@ -81,10 +86,15 @@
         return systemData;
       },
     },
-};
+  };
 </script>
 
 <style scoped>
+  .container {
+    display: flex;
+    margin: 0 60px;
+  }
+
   .sector-map {
     height: 830px;
     width: 600px;
