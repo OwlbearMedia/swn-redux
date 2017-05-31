@@ -90,11 +90,6 @@
 </script>
 
 <style scoped>
-  .container {
-    display: flex;
-    margin: 0 60px;
-  }
-
   .sector-map {
     height: 830px;
     width: 600px;

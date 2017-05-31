@@ -6,7 +6,7 @@
     </text>
     <circle v-if="hexData.systemData" :cx="hexData.radius" :cy="hexData.radius" r="7" stroke="#E3BB27" stroke-width="1" fill="#FCD440"></circle>
     <text class="hex-number" :x="hexData.radius" y="75">
-      {{ getHexNumber(hexData.column, hexData.row) }}
+      {{ hexNumber }}
     </text>
   </svg>
 </template>
@@ -18,6 +18,11 @@
     name: 'hex',
     mixins: [getHex],
     props: ['hexData'],
+    computed: {
+      hexNumber() {
+        return this.getHexNumber(this.hexData.column, this.hexData.row);
+      },
+    },
     methods: {
       hexPoints(radius) {
         const points = [];
@@ -33,7 +38,8 @@
       },
       selectSystem(event) {
         event.preventDefault();
-        this.$parent.selectedSystem = this.hexData.systemData;
+        this.$router.push({ name: 'SystemOverview', params: { id: this.hexNumber } });
+        // this.$parent.selectedSystem = this.hexData.systemData;
       },
     },
   };

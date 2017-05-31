@@ -7,14 +7,10 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     sector: {},
-    selectedSystem: {},
   },
   mutations: {
     addSector(state, sector) {
       Vue.set(state, 'sector', sector);
-    },
-    selectSystem(state, system) {
-      Vue.set(state, 'selectedSystem', system);
     },
   },
   actions: {

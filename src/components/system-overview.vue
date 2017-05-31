@@ -2,6 +2,8 @@
   <div class="system-information">
     <h2>{{ system.name }} System Information</h2>
 
+    <div class="system-description" v-if="system.description">{{ system.description }}</div>
+
     <div v-if="system.star">
       <h4>Star</h4>
 
@@ -24,6 +26,9 @@
     </div>
 
     <div v-if="system.stellarBodies">
+
+      <h3 class="stellar-bodies">Major Stellar Bodies</h3>
+
       <div v-for="world in system.stellarBodies">
         <h4>{{ world.name }}</h4>
 
@@ -45,7 +50,7 @@
             <td v-if="world.atmosphere">{{ world.atmosphere }}</td>
             <td v-if="world.temperature">{{ world.temperature }}</td>
             <td v-if="world.biosphere">{{ world.biosphere }}</td>
-            <td v-if="world.gravity">{{ world.gravity }} g</td>
+            <td v-if="world.gravity">{{ world.gravity }}g</td>
             <td v-if="world.radius">{{ world.radius }} Earth</td>
             <td v-if="world.moons">{{ world.moons }}</td>
             <td v-if="world.population !== undefined">{{ world.population | addCommas }}</td>
@@ -62,7 +67,15 @@
 <script>
   export default {
     name: 'system-info',
-    props: ['system'],
+    props: ['id'],
+    computed: {
+      system() {
+        if (this.$store.state.sector && this.$store.state.sector.systems) {
+          return this.$store.state.sector.systems[this.id];
+        }
+        return {};
+      },
+    },
     filters: {
       addCommas(value) {
         return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -76,10 +89,21 @@
     max-width: 600px  ;
   }
 
+  .system-description {
+    margin-bottom: 20px;
+  }
+
   .small {
     color: #666;
     cursor: pointer;
     font-size: 10px;
+  }
+
+  .stellar-bodies {
+    border-top: 1px #aaa solid;
+    border-bottom: 1px #aaa solid;
+    margin-top: 2em;
+    padding: 5px;
   }
 
   h4 {
