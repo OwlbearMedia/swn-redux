@@ -23,8 +23,8 @@
       </table>
     </div>
 
-    <div v-if="system.stellarBodies">
-      <div v-for="world in system.stellarBodies">
+    <div v-if="system.celestialBodies">
+      <div v-for="world in system.celestialBodies">
         <h4>{{ world.name }}</h4>
 
         <table>

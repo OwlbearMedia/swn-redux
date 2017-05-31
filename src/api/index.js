@@ -30,11 +30,39 @@ export default {
         },
         '0203': {
           name: 'Hard Light',
+          description: 'Perdurabo casts its lethal radiance out from the molten slag-droplets of the inner system to the charred debris that circles at the outer rim. It is monstrously hostile to all living flesh. The radioactivity emitted by the star is enough to burn through ship shielding in a matter of days and the only safety lies in hiding behind the scorched bulk of some lonely stone. Brightside Station, the only settlement, was built here fifty years ago to mine novium, a rare substance vital for the maintenance and upkeep of many pretech manufacturing devices. Recently tombs of an extinct alien species have been found inside some asteroids within the system.',
+          explored: true,
           star: {
             name: 'Perdurabo',
-            type: 'Red giant',
+            type: 'K5 III Red giant',
+            radius: 44.2,
+            mass: 1.5,
+            luminosity: 518,
           },
-          explored: true,
+          celestialBodies: [
+            {
+              name: 'Aegis',
+              type: 'Dwarf Planet',
+              notes: 'An iron-carbon planetoid which shields Brightside Station from the radiation of Perdurabo',
+            }, {
+              name: 'Brightside Station',
+              type: 'Station',
+              population: 100,
+              techLevel: '4',
+              extendedInfo: {
+                tags: [
+                  {
+                    name: 'Local Specialty',
+                    description: 'The heavy biotechnical infrastructure produces cheap, advanced cyberware',
+                  }, {
+                    name: 'Bubble Cities',
+                    description: 'The release of The Stain, a bioweapon, on the surface requires settlements to exist within pressurised domes',
+                  },
+                ],
+                description: '',
+              },
+            },
+          ],
         },
         '0204': {
           name: 'Polychrome',
@@ -47,7 +75,7 @@ export default {
             mass: 1.01,
             luminosity: 1.102,
           },
-          stellarBodies: [
+          celestialBodies: [
             {
               name: 'Polychrome',
               type: 'Terrestrial World',
@@ -69,7 +97,7 @@ export default {
                     description: 'The release of The Stain, a bioweapon, on the surface requires settlements to exist within pressurised domes',
                   },
                 ],
-                description: 'One thousand years ago, Gateway was the only world in the sector that rated a jump gate. Most of the later colonization of the sector came through Gateway, and countless estates and pleasure-palaces were erected on the tropical shores and high mountains of the world. When the Scream came, Gateway suffered a brutal population crash as bulk food transports could no longer reach the planet. In the chaos, countless wealthy and powerful citizens fortified their homes with supplies and automated defenses in hope of riding out the catastrophe. Many never emerged. Today, the Salvage Board issues permits to explore these sites to suitably brave souls. Oversight is necessary because some of these sites engaged in extremely dangerous maltech experimentation in a desperate attempt to restore the jump gate and the maddened psychics that once powered it. Modern psychic training on Gateway is done at the Perfect Mirror Academy, founded by a refugee from the Temple of the Clear Sky on Tecalco. The methods of the Academy are strictly orthodoxtoo orthodox for some. A sect of renegade psychics seeks to use some of the ancient experimentation to fuel greater power than the Academy offers, no matter the cost to them or those around them.',
+                description: '',
               },
             }, {
               name: 'Asteroid Belt',
@@ -94,7 +122,7 @@ export default {
         },
         '0206': {
           name: 'Hephaestus',
-          description: 'Until recently the Hephaestus system was the primary exporter of raw minerals in the sector due to its unusually dense and mineral rich asteroid belts. Exports have been interrupted due to the long simmering tensions between the population of Erichthonius and the Spacers who are residents of the asteroid belts and stations and moons of the gas giants, who feel like the Erichthonians are enriching themselves off their labor. Matters have been exacerbated by the interference of other sector powers, with Lemuria supporting the Spacers and Giedi supporting the Erichthonians.',
+          description: 'Until recently the Hephaestus system was the primary exporter of raw minerals in the sector due to its unusually dense and mineral rich asteroid belts. Exports have been interrupted due to long simmering tensions which have recently erupted into civil war between the population of Erichthonius and the Spacers who are residents of the asteroid belts and stations and moons of the gas giants, who feel like the Erichthonians are enriching themselves off their labor. Matters have been exacerbated by the interference of other sector powers, with Lemuria supporting the Spacers and Giedi supporting the Erichthonians.',
           explored: true,
           star: {
             name: 'Hephaestus',
@@ -103,7 +131,7 @@ export default {
             mass: 0.907,
             luminosity: 0.502,
           },
-          stellarBodies: [
+          celestialBodies: [
             {
               name: 'Erichthonius',
               type: 'Terrestrial World',
@@ -125,12 +153,12 @@ export default {
                     description: '',
                   },
                 ],
-                description: 'One thousand years ago, Gateway was the only world in the sector that rated a jump gate. Most of the later colonization of the sector came through Gateway, and countless estates and pleasure-palaces were erected on the tropical shores and high mountains of the world. When the Scream came, Gateway suffered a brutal population crash as bulk food transports could no longer reach the planet. In the chaos, countless wealthy and powerful citizens fortified their homes with supplies and automated defenses in hope of riding out the catastrophe. Many never emerged. Today, the Salvage Board issues permits to explore these sites to suitably brave souls. Oversight is necessary because some of these sites engaged in extremely dangerous maltech experimentation in a desperate attempt to restore the jump gate and the maddened psychics that once powered it. Modern psychic training on Gateway is done at the Perfect Mirror Academy, founded by a refugee from the Temple of the Clear Sky on Tecalco. The methods of the Academy are strictly orthodoxtoo orthodox for some. A sect of renegade psychics seeks to use some of the ancient experimentation to fuel greater power than the Academy offers, no matter the cost to them or those around them.',
+                description: '',
               },
             }, {
               name: 'Asteroid Belt',
               type: 'Asteroid Belt',
-              notes: 'Especially dense with mineral rich asteroids with heavy mining operations',
+              notes: 'Especially dense with mineral rich asteroids and heavy mining operations',
             }, {
               name: 'Periphetes',
               type: 'Gas Giant',
@@ -150,7 +178,7 @@ export default {
             }, {
               name: 'Asteroid Belt',
               type: 'Asteroid Belt',
-              notes: 'Especially dense with mineral rich asteroids with heavy mining operations',
+              notes: 'Especially dense with mineral rich asteroids and heavy mining operations',
             }, {
               name: 'Cabeiri',
               type: 'Ice Giant',
@@ -164,18 +192,18 @@ export default {
         },
         '0207': {
           name: 'Gateway',
-          description: '',
+          description: 'One thousand years ago, Gateway was the only world in the sector that rated a jump gate. Most of the later colonization of the sector came through Gateway, and countless estates and pleasure-palaces were erected on the tropical shores and high mountains of the world. When the Scream came, Gateway suffered a brutal population crash as bulk food transports could no longer reach the planet. Today, while Gateway is much diminished from its former glory it is a stable and peaceful world and maintains an old pride in its former preeminence.',
           explored: true,
           star: {
-            name: 'Krumine',
+            name: 'Apollo',
             type: 'G2V',
             radius: 1.127,
             mass: 1.07,
             luminosity: 1.219,
           },
-          stellarBodies: [
+          celestialBodies: [
             {
-              name: 'Krumine I',
+              name: 'Orpheus',
               type: 'Terrestrial World',
               atmosphere: 'Corrosive',
               temperature: 'Burning',
@@ -211,7 +239,7 @@ export default {
               name: 'Asteroid Belt',
               type: 'Asteroid Belt',
             }, {
-              name: 'Krumine III',
+              name: 'Linus',
               type: 'Gas Giant',
               gravity: 1.065,
               radius: 9.449,
@@ -219,7 +247,7 @@ export default {
               moons: 42,
               notes: 'Extensive ring system',
             }, {
-              name: 'Krumine IV',
+              name: 'Ialemus',
               type: 'Ice Giant',
               gravity: 1.14,
               radius: 3.883,
@@ -231,7 +259,7 @@ export default {
         '0301': {
           name: 'Zoon',
           explored: true,
-          description: 'This system is largely unknown. The only known populated planet is Zoon, a backwards swamp planet and the homeworld of Eeg, . Eeg was captured by offworld slavers for their fighting pits. There are no publicly know drill routes.',
+          description: 'This system is largely unknown. The only known populated planet is Zoon, a backwards swamp planet and the homeworld of Eeg, who was captured by offworld slavers for their fighting pits. There are no publicly know drill routes.',
           star: {
             name: 'Kappa2 Ceti "The Sun"',
             type: 'G5V',
@@ -239,7 +267,7 @@ export default {
             mass: 0.98,
             luminosity: 0.85,
           },
-          stellarBodies: [
+          celestialBodies: [
             {
               name: 'Zoon',
               type: 'Terrestrial World',
@@ -269,6 +297,53 @@ export default {
         '0305': {
           name: 'Giedi',
           explored: true,
+          star: {
+            name: 'Ares',
+            type: 'F8V',
+            radius: 1.480,
+            mass: 1.27,
+            luminosity: 3.57,
+          },
+          celestialBodies: [
+            {
+              name: 'Hera',
+              type: 'Terrestrial World',
+              atmosphere: 'Corrosive',
+              temperature: 'Burning',
+              biosphere: 'None',
+              gravity: 0.897,
+              radius: 0.932,
+              population: 0,
+              moons: 0,
+            }, {
+              name: 'Giedi Prime',
+              type: 'Terrestrial World',
+              atmosphere: 'Thick',
+              temperature: 'Warm',
+              biosphere: 'Hybrid',
+              gravity: 1.134,
+              radius: 1.216,
+              population: 7512784000,
+              techLevel: '4',
+              moons: 2,
+              extendedInfo: {
+                tags: [
+                  {
+                    name: 'Police State',
+                    description: 'Surveillance and secret police are commonplace and considered necessary to keep the population in line.',
+                  }, {
+                    name: 'Heavy Industry',
+                    description: 'Mega corporations produce a huge amount of goods with little concern for the welfare of their workers or the environment.',
+                  },
+                ],
+                description: '',
+              },
+            }, {
+              name: 'Enyo',
+              type: 'Asteroid Belt',
+              notes: 'Heavy mining operations',
+            },
+          ],
         },
         '0306': {
           name: 'Lemuria',

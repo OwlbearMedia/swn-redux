@@ -25,11 +25,11 @@
       </table>
     </div>
 
-    <div v-if="system.stellarBodies">
+    <div v-if="system.celestialBodies">
 
-      <h3 class="stellar-bodies">Major Stellar Bodies</h3>
+      <h3 class="celestial-bodies">Major Celestial Bodies</h3>
 
-      <div v-for="world in system.stellarBodies">
+      <div v-for="world in system.celestialBodies">
         <h4>{{ world.name }}</h4>
 
         <table>
@@ -99,7 +99,7 @@
     font-size: 10px;
   }
 
-  .stellar-bodies {
+  .celestial-bodies {
     border-top: 1px #aaa solid;
     border-bottom: 1px #aaa solid;
     margin-top: 2em;
