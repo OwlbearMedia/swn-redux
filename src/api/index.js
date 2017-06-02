@@ -297,6 +297,7 @@ export default {
         '0305': {
           name: 'Giedi',
           explored: true,
+          description: 'While Giedi is nominally a democracy, in reality it is an oligarchy controlled by a handful of mega corporations. Heavy industry produces huge amount of goods with little concern for the welfare of their workers or the environment. Surveillance and secret police are commonplace and necessary to keep the population in line.',
           star: {
             name: 'Ares',
             type: 'F8V',
@@ -342,6 +343,27 @@ export default {
               name: 'Enyo',
               type: 'Asteroid Belt',
               notes: 'Heavy mining operations',
+            }, {
+              name: 'Eris',
+              type: 'Gas Giant',
+              gravity: 1.132,
+              radius: 9.893,
+              population: 378000,
+              moons: 34,
+            }, {
+              name: 'Hebe',
+              type: 'Gas Giant',
+              gravity: 1.298,
+              radius: 14.098,
+              population: 2543000,
+              moons: 71,
+            }, {
+              name: 'Typhon',
+              type: 'Gas Giant',
+              gravity: 1.308,
+              radius: 13.174,
+              population: 693000,
+              moons: 47,
             },
           ],
         },
@@ -372,6 +394,28 @@ export default {
         '0505': {
           name: 'Harmonious Repose',
           explored: true,
+          description: 'The system contains a single large gas giant with an extensive ring system. Within the rings is an ancient alien space station circling the planet. The station is segmented into sections like enormous train cars about a kilometer across and several kilometers long. It is unknown who originally built the station but it is now populated by dozens, perhaps hundreds, of different alien species. The station serves as a trade hub for all manner of exotic goods. In addition to the space station, the gaseous atmosphere of the planet itself is home to a species that resemble an enormous jellyfish.',
+          star: {
+            name: 'Tranquillity',
+            type: 'A5V',
+            radius: 1.842,
+            mass: 1.92,
+            luminosity: 16.63,
+          },
+          celestialBodies: [
+            {
+              name: 'Asteroid Belt',
+              type: 'Asteroid Belt',
+            }, {
+              name: 'Harmonious Repose',
+              type: 'Gas Giant',
+              gravity: 1.298,
+              radius: 14.098,
+              population: 'Unknown',
+              techLevel: '4-5',
+              moons: 0,
+            },
+          ],
         },
         '0508': {
           name: '',
