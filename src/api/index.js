@@ -297,7 +297,7 @@ export default {
         '0305': {
           name: 'Giedi',
           explored: true,
-          description: 'While Giedi is nominally a democracy, in reality it is an oligarchy controlled by a handful of mega corporations. Heavy industry produces huge amount of goods with little concern for the welfare of their workers or the environment. Surveillance and secret police are commonplace and necessary to keep the population in line.',
+          description: 'The current ruling oligarchy of Giedi recently victoriously concluded a decades long civil war for control of the system. With power now firmly in their grasp they are looking with greedy eyes at neighboring systems with hopes of expanding their empire and maintaining the vast military industrial complex established during the war. Giedi Prime, the capital of the planet, is an industrial wasteland. While the majority of the population suffers on the polluted surface under constant surveillance and secret police scrutiny the elite live in lavish orbital estates.',
           star: {
             name: 'Ares',
             type: 'F8V',
@@ -369,7 +369,102 @@ export default {
         },
         '0306': {
           name: 'Lemuria',
+          description: 'The Lemuria system is the primary center for science and culture in the sector. The Lemuria Navy is as much an organization of science and exploration as it is a defense force and provides freely shares its high quality, up to date, charts. The orbital shipyards of Charybdis produce some of the most advanced ships in the sector. The residents of Scylla, the capital planet of the system, live in extensive floating cities built long ago by an unknown alien species, the surface of the planet is entirely a sort of wildlife refuge for strange alien beasts, presumably established by whoever built the floating cities.',
           explored: true,
+          star: {
+            name: 'Echidna',
+            type: 'G5IV',
+            radius: 1.73,
+            mass: 1.11,
+            luminosity: 2.54,
+          },
+          celestialBodies: [
+            {
+              name: 'Cerberus',
+              type: 'Terrestrial World',
+              atmosphere: 'Corrosive',
+              temperature: 'Burning',
+              biosphere: 'None',
+              gravity: 0.985,
+              radius: 1.010,
+              population: 0,
+              moons: 0,
+            }, {
+              name: 'Scylla',
+              type: 'Terrestrial World',
+              atmosphere: 'Breathable',
+              temperature: 'Warm',
+              biosphere: 'Engineered',
+              gravity: 1.045,
+              radius: 1.210,
+              population: 5143685000,
+              techLevel: '4+',
+              moons: 2,
+              extendedInfo: {
+                tags: [
+                  {
+                    name: 'Floating Cities',
+                    description: '',
+                  }, {
+                    name: '',
+                    description: '',
+                  },
+                ],
+                description: '',
+              },
+            }, {
+              name: 'Charybdis',
+              type: 'Terrestrial World',
+              atmosphere: 'Breathable',
+              temperature: 'Temperate',
+              biosphere: 'Miscible',
+              gravity: 0.997,
+              radius: 1.024,
+              population: 4461586000,
+              techLevel: '4+',
+              moons: 3,
+              extendedInfo: {
+                tags: [
+                  {
+                    name: '',
+                    description: '',
+                  }, {
+                    name: '',
+                    description: '',
+                  },
+                ],
+                description: '',
+              },
+            }, {
+              name: 'Gorgon',
+              type: 'Asteroid Belt',
+              notes: 'Heavy mining operations',
+            }, {
+              name: 'Hydra',
+              type: 'Gas Giant',
+              gravity: 1.135,
+              radius: 8.156,
+              population: 54654000,
+              techLevel: '4',
+              moons: 58,
+            }, {
+              name: 'Chimera',
+              type: 'Gas Giant',
+              gravity: 1.254,
+              radius: 13.548,
+              population: 68146000,
+              techLevel: '4',
+              moons: 96,
+            }, {
+              name: 'Medusa',
+              type: 'Gas Giant',
+              gravity: 1.456,
+              radius: 10.136,
+              population: 64364000,
+              techLevel: '4',
+              moons: 68,
+            },
+          ],
         },
         '0403': {
           name: '',
@@ -380,8 +475,90 @@ export default {
           explored: false,
         },
         '0407': {
-          name: 'Sibyl',
+          name: 'Pacha',
+          description: 'The Pacha system was initially colonized by Quechua people who were indigenous to the Andes mountains of old Earth. The primary population center is the planet Pachamama, which is almost entirely covered in enormous mountain ranges. The atmosphere in the lower regions of the planet is heavy and toxic, however the atmosphere above about 3000 meters is pleasant and breathable. As such the entire population lives in the higher elevations of the mountain ranges that network the planet. Today Pachamama is best known for its prestigious psionics academy, Ukhu Pacha.',
           explored: true,
+          star: {
+            name: 'Inti',
+            type: 'F5IV',
+            radius: 2.048,
+            mass: 1.499,
+            luminosity: 6.93,
+          },
+          celestialBodies: [
+            {
+              name: 'Ch\'aska',
+              type: 'Terrestrial World',
+              atmosphere: 'Corrosive',
+              temperature: 'Burning',
+              biosphere: 'None',
+              gravity: 0.954,
+              radius: 0.988,
+              population: 0,
+              moons: 0,
+            }, {
+              name: 'Urcaguary',
+              type: 'Terrestrial World',
+              atmosphere: 'Thin',
+              temperature: 'Burning',
+              biosphere: 'Microbial life',
+              gravity: 1.058,
+              radius: 1.122,
+              population: 5000,
+              techLevel: '4',
+              moons: 1,
+              notes: 'Population is a mining outpost',
+            }, {
+              name: 'Pachamama',
+              type: 'Terrestrial World',
+              atmosphere: 'Breathable/Toxic',
+              temperature: 'Temperate',
+              biosphere: 'Miscible',
+              gravity: 1.102,
+              radius: 1.152,
+              population: 547648000,
+              techLevel: '4',
+              moons: 2,
+              extendedInfo: {
+                tags: [
+                  {
+                    name: 'Psionics Academy',
+                    description: 'Surveillance and secret police are commonplace and considered necessary to keep the population in line.',
+                  }, {
+                    name: 'Freak Geology',
+                    description: '',
+                  },
+                ],
+                description: '',
+              },
+            }, {
+              name: 'Ekkeko',
+              type: 'Asteroid Belt',
+              notes: 'Small mining operations',
+            }, {
+              name: 'Apocatequil',
+              type: 'Gas Giant',
+              gravity: 1.048,
+              radius: 8.548,
+              population: 0,
+              moons: 54,
+            }, {
+              name: 'Illapa',
+              type: 'Gas Gia1nt',
+              gravity: 1.168,
+              radius: 10.236,
+              population: 0,
+              moons: 64,
+              notes: 'Extensive ring system',
+            }, {
+              name: 'Ataguchu',
+              type: 'Ice Giant',
+              gravity: 1.145,
+              radius: 7.468,
+              population: 0,
+              moons: 13,
+            },
+          ],
         },
         '0409': {
           name: '',
@@ -394,7 +571,7 @@ export default {
         '0505': {
           name: 'Harmonious Repose',
           explored: true,
-          description: 'The system contains a single large gas giant with an extensive ring system. Within the rings is an ancient alien space station circling the planet. The station is segmented into sections like enormous train cars about a kilometer across and several kilometers long. It is unknown who originally built the station but it is now populated by dozens, perhaps hundreds, of different alien species. The station serves as a trade hub for all manner of exotic goods. In addition to the space station, the gaseous atmosphere of the planet itself is home to a species that resemble an enormous jellyfish.',
+          description: 'The system contains a single large gas giant with an extensive ring system. Within the rings is an ancient alien space station circling the planet. The station is segmented into sections like enormous train cars several kilometers across and dozens of kilometers long. It is unknown who originally built the station but it is now populated by dozens, perhaps hundreds, of different alien species. The station serves as a trade hub for all manner of exotic goods. In addition to the space station, the gaseous atmosphere of the planet itself is home to a species that resemble an enormous jellyfish.',
           star: {
             name: 'Tranquillity',
             type: 'A5V',
