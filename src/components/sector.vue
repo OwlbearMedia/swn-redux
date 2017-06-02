@@ -16,7 +16,6 @@
           :key="hexData.key"
         ></hex>
       </svg>
-      <system-overview v-if="selectedSystem" :system="selectedSystem"></system-overview>
     </div>
   </div>
 </template>
@@ -36,7 +35,6 @@
         radius: 45,
         columns: 8,
         rows: 10,
-        selectedSystem: null,
       };
     },
     computed: {

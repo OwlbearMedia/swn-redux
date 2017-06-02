@@ -39,7 +39,6 @@
       selectSystem(event) {
         event.preventDefault();
         this.$router.push({ name: 'SystemOverview', params: { id: this.hexNumber } });
-        // this.$parent.selectedSystem = this.hexData.systemData;
       },
     },
   };
