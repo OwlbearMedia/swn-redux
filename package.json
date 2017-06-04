@@ -6,14 +6,17 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "start": "node build/dev-server.js",
+    "start": "node server.js",
     "build": "node build/build.js",
     "deploy": "git subtree push --prefix dist heroku master",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit/specs"
+    "lint": "eslint --ext .js,.vue src test/unit/specs",
+    "postinstall": "npm run build"
   },
   "dependencies": {
+    "express": "^4.15.3",
+    "serve-static": "^1.12.3",
     "vue": "^2.3.3",
     "vue-router": "^2.3.1",
     "vuex": "^2.3.1",
