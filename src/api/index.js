@@ -1,7 +1,6 @@
 export default {
   getSector() {
     return Promise.resolve({
-      id: 1917,
       name: 'Valhalla Beta',
       systems: {
         '0001': {

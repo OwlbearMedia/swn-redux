@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import Api from '../api';
+import DataManager from './data-manager';
 
 Vue.use(Vuex);
 
@@ -15,7 +15,7 @@ export default new Vuex.Store({
   },
   actions: {
     getSector(context) {
-      Api.getSector().then(sector => context.commit('addSector', sector));
+      DataManager.getSector().then(sector => context.commit('addSector', sector));
     },
   },
 });

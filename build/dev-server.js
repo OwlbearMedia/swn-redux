@@ -5,6 +5,7 @@ if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 }
 
+var api = require('../server/api')
 var opn = require('opn')
 var path = require('path')
 var express = require('express')
@@ -63,6 +64,18 @@ app.use(hotMiddleware)
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
+
+// Also start API
+// Routes
+app.get('/api', (request, response) => {
+  response.send('Stars Without Number API is running.');
+});
+
+app.get('/api/:noun/:id', (request, response) => {
+  api.get(request).then((sector) => {
+    response.send(sector);
+  });
+});
 
 var uri = 'http://localhost:' + port
 
