@@ -5,7 +5,6 @@ if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 }
 
-var api = require('../server/api')
 var opn = require('opn')
 var path = require('path')
 var express = require('express')
@@ -67,15 +66,7 @@ app.use(staticPath, express.static('./static'))
 
 // Also start API
 // Routes
-app.get('/api', (request, response) => {
-  response.send('Stars Without Number API is running.');
-});
-
-app.get('/api/:noun/:id', (request, response) => {
-  api.get(request).then((sector) => {
-    response.send(sector);
-  });
-});
+app = require('../server/api')(app);
 
 var uri = 'http://localhost:' + port
 
