@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 
 const pw = credential();
+// @todo: move username and password to config file
 const mongoUri = 'mongodb://hoers:hoersdbpassword@ds161901.mlab.com:61901/heroku_4kxj99wl';
 
 /*
@@ -32,7 +33,11 @@ if (token) {
     success: false,
     message: 'No token provided.'
   });
-  */
+
+function isAuthenticated(user) {
+
+}
+*/
 
 const api = {
   authenticate(request) {
@@ -47,12 +52,15 @@ const api = {
             if (user) {
               pw.verify(user.password, request.body.password).then((isValid) => {
                 if (isValid) {
+                  // @todo: move secret key to config file
                   const token = jwt.sign(user, 'superSecret', {
                     expiresIn: '2 days',
                   });
                   resolve({
                     token,
-                    message: 'success',
+                    login: user.login,
+                    character: user.character,
+                    name: `${user.firstName} ${user.lastName}`,
                   });
                 } else {
                   reject({ message: 'Username or password is incorrect' });
@@ -76,7 +84,7 @@ const api = {
           const id = parseInt(request.params.id, 10);
           const collection = db.collection(request.params.noun);
 
-          collection.findOne({ id }, (error, item) => {
+          collection.findOne({ _id: id }, (error, item) => {
             if (error) {
               reject(error);
             } else {
@@ -156,6 +164,28 @@ const api = {
       });
     });
   },
+
+  update(request) {
+    return new Promise((resolve, reject) => {
+      MongoClient.connect(mongoUri, (err, db) => {
+        if (err) {
+          reject(err);
+        } else {
+          const id = parseInt(request.params.id, 10);
+          const collection = db.collection(request.params.noun);
+
+          collection.updateOne({ _id: id }, { $set: request.body }, (error, result) => {
+            if (error) {
+              reject(error);
+            } else if (result.ok) {
+              resolve({ message: `Sector ${id} successfully updated.` });
+              db.close();
+            }
+          });
+        }
+      });
+    });
+  },
 };
 
 module.exports = function (app) {
@@ -189,6 +219,12 @@ module.exports = function (app) {
 
   app.post('/api/:noun', (request, response) => {
     api.save(request).then((data) => {
+      response.send(data);
+    });
+  });
+
+  app.put('/api/:noun/:id', (request, response) => {
+    api.update(request).then((data) => {
       response.send(data);
     });
   });

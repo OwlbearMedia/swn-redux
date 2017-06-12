@@ -29,8 +29,12 @@
 
       <h3 class="celestial-bodies">Major Celestial Bodies</h3>
 
-      <div v-for="world in system.celestialBodies">
-        <h4>{{ world.name }}</h4>
+      <div v-for="(world, index) in system.celestialBodies">
+        <h4>
+          <editable-text :path="`systems[${id}].celestialBodies[${index}].name`">
+            {{ world.name }}
+          </editable-text>
+        </h4>
 
         <table>
           <tr>
@@ -46,13 +50,37 @@
             <th v-if="world.notes">Notes</th>
           </tr>
           <tr>
-            <td v-if="world.type">{{ world.type }}</td>
-            <td v-if="world.atmosphere">{{ world.atmosphere }}</td>
-            <td v-if="world.temperature">{{ world.temperature }}</td>
-            <td v-if="world.biosphere">{{ world.biosphere }}</td>
-            <td v-if="world.gravity">{{ world.gravity }}g</td>
-            <td v-if="world.radius">{{ world.radius }} Earth</td>
-            <td v-if="world.moons">{{ world.moons }}</td>
+            <td v-if="world.type">
+              <editable-text :path="`systems[${id}].celestialBodies[${index}].type`">
+                {{ world.type }}
+              </editable-text>
+            </td>
+            <td v-if="world.atmosphere">
+              <editable-text :path="`systems[${id}].celestialBodies[${index}].atmosphere`">
+                {{ world.atmosphere }}
+              </editable-text>
+            </td>
+            <td v-if="world.temperature">
+              <editable-text :path="`systems[${id}].celestialBodies[${index}].temperature`">
+                {{ world.temperature }}
+              </editable-text>
+            </td>
+            <td v-if="world.biosphere">
+              <editable-text :path="`systems[${id}].celestialBodies[${index}].biosphere`">
+                {{ world.biosphere }}
+              </editable-text>
+            </td>
+            <td v-if="world.gravity">
+              {{ world.gravity }}g
+            </td>
+            <td v-if="world.radius">
+              {{ world.radius }} Earth
+            </td>
+            <td v-if="world.moons">
+              <editable-text :path="`systems[${id}].celestialBodies[${index}].moons`">
+                {{ world.moons }}
+              </editable-text>
+            </td>
             <td v-if="world.population !== undefined">{{ world.population | addCommas }}</td>
             <td v-if="world.techLevel">{{ world.techLevel }}</td>
             <td v-if="world.notes">{{ world.notes }}</td>
@@ -65,8 +93,11 @@
 </template>
 
 <script>
+  import EditableText from './editable-text';
+
   export default {
     name: 'system-info',
+    components: { EditableText },
     props: ['id'],
     computed: {
       system() {
