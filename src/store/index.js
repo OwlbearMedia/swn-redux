@@ -8,10 +8,12 @@ export default new Vuex.Store({
   state: {
     user: {},
     sector: {},
+    isLoggedIn: false,
   },
   mutations: {
     updateUser(state, user) {
       Vue.set(state, 'user', user);
+      Vue.set(state, 'isLoggedIn', true);
     },
     updateSector(state, sector) {
       Vue.set(state, 'sector', sector);

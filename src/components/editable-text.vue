@@ -1,7 +1,7 @@
 <template>
   <div>
     <input v-if="isEditing" v-model="data" type="text" @keydown="handleKeys($event)"/>
-    <div v-else class="text" @click="edit($event)">{{ data }}<span class="flaticon-edit"></span></div>
+    <div v-else class="{ 'text': isLoggedIn }" @click="edit($event)">{{ data }}<span v-if="isLoggedIn" class="flaticon-edit"></span></div>
   </div>
 </template>
 
@@ -17,10 +17,17 @@
         isEditing: false,
       };
     },
+    computed: {
+      isLoggedIn() {
+        return this.$store.state.isLoggedIn;
+      },
+    },
     methods: {
       edit(event) {
         event.preventDefault();
-        this.isEditing = true;
+        if (this.isLoggedIn) {
+          this.isEditing = true;
+        }
       },
       handleKeys(event) {
         // If it's the enter key
