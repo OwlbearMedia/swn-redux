@@ -12,6 +12,7 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
+                <li><a href="#/system-registry">System Registry</a></li>
                 <li><a href="#/spacebook">Spacebook</a></li>
               </ul>
             </div>

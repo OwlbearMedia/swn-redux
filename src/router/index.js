@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import SystemOverview from '@/components/system-overview';
+import SystemRegistry from '@/components/system-registry';
 import Spacebook from '@/components/spacebook';
 import Login from '@/components/log-in';
 
@@ -24,6 +25,10 @@ export default new Router({
       path: '/spacebook',
       name: 'Spacebook',
       component: Spacebook,
+    }, {
+      path: '/system-registry',
+      name: 'SystemRegistry',
+      component: SystemRegistry,
     },
   ],
 });
