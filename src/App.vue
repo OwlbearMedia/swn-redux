@@ -12,8 +12,8 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><a href="#/system-registry">System Registry</a></li>
-                <li><a href="#/spacebook">Spacebook</a></li>
+                <li><router-link to="/system-registry">System Registry</router-link></li>
+                <li><router-link to="/spacebook">Spacebook</router-link></li>
               </ul>
             </div>
           </div>
@@ -50,6 +50,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
+  }
+
+  .navbar {
+    border-radius: 0 0 4px 4px;
+    border-top: none;
   }
 
   .navbar-brand {

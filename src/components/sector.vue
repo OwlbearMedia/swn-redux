@@ -2,6 +2,11 @@
   <div>
     <h2>Sector {{ sectorName }}</h2>
     <svg id="sector-map" class="sector-map" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <hex
+        v-for="hexData in hexes"
+        :hexData="hexData"
+        :key="hexData.key"
+      ></hex>
       <chart
         v-for="chart in sectorCharts"
         :chart="chart"
@@ -9,11 +14,6 @@
         :radius="45"
         :key="chart.id"
       ></chart>
-      <hex
-        v-for="hexData in hexes"
-        :hexData="hexData"
-        :key="hexData.key"
-      ></hex>
     </svg>
   </div>
 </template>

@@ -9,6 +9,7 @@ export default new Vuex.Store({
     user: {},
     sector: {},
     isLoggedIn: false,
+    systemHovered: null,
   },
   mutations: {
     updateUser(state, user) {
@@ -17,6 +18,9 @@ export default new Vuex.Store({
     },
     updateSector(state, sector) {
       Vue.set(state, 'sector', sector);
+    },
+    setSystemHovered(state, system) {
+      Vue.set(state, 'systemHovered', system);
     },
   },
   actions: {

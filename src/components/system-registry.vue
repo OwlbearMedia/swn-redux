@@ -7,12 +7,23 @@
         <tr>
           <th>Hex</th>
           <th>System</th>
+          <th>Populated Planets/Stations</th>
         </tr>
         </thead>
         <tbody>
-          <tr v-for="(system, key) in systems" v-if="system.explored">
+          <tr
+            v-for="(system, key) in systems"
+            v-if="system.explored"
+            @mouseover="$store.commit('setSystemHovered', key)"
+            @mouseout="$store.commit('setSystemHovered', null)"
+            @click="$router.push({ path: `system-overview/${key}` })">
             <td>{{ key }}</td>
             <td>{{ system.name }}</td>
+            <td>
+              <div v-for="celestialBody in system.celestialBodies" v-if="celestialBody.population">
+                {{ celestialBody.name }}
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -30,3 +41,9 @@
     },
   };
 </script>
+
+<style scoped>
+  tbody tr {
+    cursor: pointer;
+  }
+</style>

@@ -1,6 +1,6 @@
 <template>
   <svg class="hex-container" :x="hexData.x" :y="hexData.y" @click="selectSystem">
-    <polygon class="hex" :points="hexPoints(hexData.radius)"></polygon>
+    <polygon :class="{ hex: true, 'hovered': isHovered }" :points="hexPoints(hexData.radius)"></polygon>
     <text class="system-name" v-if="hexData.systemData && hexData.systemData.explored" :x="hexData.radius" y="30">
       {{ hexData.systemData.name }}
     </text>
@@ -21,6 +21,9 @@
     computed: {
       hexNumber() {
         return this.getHexNumber(this.hexData.column, this.hexData.row);
+      },
+      isHovered() {
+        return this.$store.state.systemHovered === this.hexNumber;
       },
     },
     methods: {
@@ -50,6 +53,10 @@
     fill: transparent;
     stroke: #000;
     stroke-width: 2px;
+  }
+
+  .hex.hovered {
+    fill: lemonchiffon;
   }
 
   .hex-number {

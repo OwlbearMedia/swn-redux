@@ -11,7 +11,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: '',
+      name: 'SystemRegistry',
+      component: SystemRegistry,
     }, {
       path: '/system-overview/:id',
       name: 'SystemOverview',
