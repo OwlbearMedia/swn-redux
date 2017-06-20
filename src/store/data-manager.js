@@ -14,6 +14,16 @@ export default {
     });
   },
 
+  getSpacebook() {
+    return new Promise((resolve, reject) => {
+      xhr({
+        url: '/api/spacebook',
+        success: resolve,
+        error: reject,
+      });
+    });
+  },
+
   updateSector(data) {
     return new Promise((resolve, reject) => {
       xhr({

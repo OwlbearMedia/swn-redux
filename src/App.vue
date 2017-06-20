@@ -40,6 +40,7 @@
     components: { Sector },
     created() {
       this.$store.dispatch('getSector');
+      this.$store.dispatch('getSpacebook');
     },
   };
 </script>

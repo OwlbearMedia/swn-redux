@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     user: {},
     sector: {},
+    spacebook: {},
     isLoggedIn: false,
     systemHovered: null,
   },
@@ -22,6 +23,9 @@ export default new Vuex.Store({
     setSystemHovered(state, system) {
       Vue.set(state, 'systemHovered', system);
     },
+    updateSpacebook(state, spacebook) {
+      Vue.set(state, 'spacebook', spacebook);
+    },
   },
   actions: {
     getSector(context) {
@@ -29,6 +33,9 @@ export default new Vuex.Store({
     },
     updateSector(context, data) {
       DataManager.updateSector(data).then(() => context.commit('updateSector', data));
+    },
+    getSpacebook(context) {
+      DataManager.getSpacebook().then(spacebook => context.commit('updateSpacebook', spacebook));
     },
     authenticate(context, data) {
       DataManager.authenticate(data).then(user => context.commit('updateUser', user));
