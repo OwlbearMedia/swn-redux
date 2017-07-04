@@ -4,7 +4,7 @@
     <text class="system-name" v-if="hexData.systemData && hexData.systemData.explored" :x="hexData.radius" y="30">
       {{ hexData.systemData.name }}
     </text>
-    <circle v-if="hexData.systemData" :cx="hexData.radius" :cy="hexData.radius" r="7" stroke="#E3BB27" stroke-width="1" fill="#FCD440"></circle>
+    <star v-if="hexData.systemData" :center="hexData.radius" :star="hexData.systemData.star"></star>
     <text class="hex-number" :x="hexData.radius" y="75">
       {{ hexNumber }}
     </text>
@@ -12,10 +12,12 @@
 </template>
 
 <script>
+  import Star from './star';
   import getHex from './mixins/get-hex-info';
 
   export default {
     name: 'hex',
+    components: { Star },
     mixins: [getHex],
     props: ['hexData'],
     computed: {
