@@ -53,22 +53,22 @@
   .hex {
     cursor: pointer;
     fill: transparent;
-    stroke: #000;
+    stroke: #f5f5dc;
     stroke-width: 2px;
   }
 
   .hex.hovered {
-    fill: lemonchiffon;
+    fill: lightslategray;
   }
 
   .hex-number {
-    fill: #aaa;
+    fill: #fff;
     font-size: 12px;
     text-anchor: middle;
   }
 
   .system-name {
-    fill: #333;
+    fill: #fff;
     font-size: 10px;
     text-anchor: middle;
   }

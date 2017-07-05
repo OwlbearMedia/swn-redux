@@ -50,7 +50,7 @@
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
+    color: #f5f5dc;
   }
 
   .navbar {
@@ -58,7 +58,12 @@
     border-top: none;
   }
 
-  .navbar-brand {
+  .navbar-default .navbar-brand {
+    color: #222;
     border-right: 1px solid #e7e7e7;
+  }
+
+  .navbar-default .navbar-nav>li>a {
+    color: #222;
   }
 </style>
