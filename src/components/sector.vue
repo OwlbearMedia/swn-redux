@@ -1,6 +1,13 @@
 <template>
   <div>
     <h2>Sector {{ sectorName }}</h2>
+    <div class="form-group">
+      <div class="checkbox">
+        <label>
+          <input v-model="showHexGrid" type="checkbox"> Show hex grid
+        </label>
+      </div>
+    </div>
     <svg id="sector-map" class="sector-map" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <chart
         v-for="chart in sectorCharts"
@@ -11,8 +18,9 @@
       ></chart>
       <hex
         v-for="hexData in hexes"
-        :hexData="hexData"
         :key="hexData.key"
+        :hexData="hexData"
+        :showHexGrid="showHexGrid"
       ></hex>
     </svg>
   </div>
@@ -30,9 +38,10 @@
     mixins: [getHex],
     data() {
       return {
+        rows: 10,
         radius: 45,
         columns: 8,
-        rows: 10,
+        showHexGrid: true,
       };
     },
     computed: {

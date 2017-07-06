@@ -1,11 +1,11 @@
 <template>
   <svg class="hex-container" :x="hexData.x" :y="hexData.y" @click="selectSystem">
-    <polygon :class="{ hex: true, 'hovered': isHovered }" :points="hexPoints(hexData.radius)"></polygon>
+    <polygon :class="{ hex: true, 'hovered': isHovered, 'show-grid': showHexGrid }" :points="hexPoints(hexData.radius)"></polygon>
     <text class="system-name" v-if="hexData.systemData && hexData.systemData.explored" :x="hexData.radius" y="30">
       {{ hexData.systemData.name }}
     </text>
     <star v-if="hexData.systemData" :center="hexData.radius" :star="hexData.systemData.star"></star>
-    <text class="hex-number" :x="hexData.radius" y="75">
+    <text :class="{ 'hex-number': true, 'show-grid': showHexGrid }" :x="hexData.radius" y="75">
       {{ hexNumber }}
     </text>
   </svg>
@@ -19,7 +19,7 @@
     name: 'hex',
     components: { Star },
     mixins: [getHex],
-    props: ['hexData'],
+    props: ['hexData', 'showHexGrid'],
     computed: {
       hexNumber() {
         return this.getHexNumber(this.hexData.column, this.hexData.row);
@@ -53,6 +53,9 @@
   .hex {
     cursor: pointer;
     fill: transparent;
+  }
+
+  .hex.show-grid {
     stroke: #f5f5dc;
     stroke-width: 2px;
   }
@@ -62,9 +65,13 @@
   }
 
   .hex-number {
-    fill: #fff;
+    fill: transparent;
     font-size: 12px;
     text-anchor: middle;
+  }
+
+  .hex-number.show-grid {
+    fill: #fff;
   }
 
   .system-name {

@@ -51,6 +51,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #f5f5dc;
+    position: relative;
+    z-index: 9999;
   }
 
   .navbar {
